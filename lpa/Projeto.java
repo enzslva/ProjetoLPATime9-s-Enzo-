@@ -48,6 +48,7 @@ public class Projeto {
 			//manu
 			case 4:
 				listarPalavra(palavras);
+				break; 
 				
 			//funçao para encerrar o sistema	
 			case 5:	
@@ -82,8 +83,28 @@ public class Projeto {
 	
 	//INICIO DO CODIGO DAS FUNÇÕES (OBS: cada um pfvr edite apenas dentro da sua função)
 	//FUNÇÃO DE NICO
-	public static void adicionarPalavra(String[] palavras) {
+	public static void adicionarPalavra(String[] vetor) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Digite a palavra que deseja adicionar: ");
+		String novaPalavra = input.nextLine();
 		
+	// 1 verificar se a palavra ja existe no array	
+		for (int i = 0; i < vetor.length; i++) {
+			if (vetor[i] != null && vetor[i].equalsIgnoreCase(novaPalavra)) {
+			System.out.println("Palavra existente");
+			return; 
+			}
+		}
+	// 2 procurar uma posição vazia (null)
+		for (int i = 0; i < vetor.length; i++) {
+			if (vetor[i] == null) {
+				vetor[i] = novaPalavra; 
+				System.out.println("Palavra adicionada na posição " + i);
+				return;
+			}
+		}
+	// 3 se nao saiu nos returns acima, o array esta cheio 
+		System.out.println("Não é possível adicionar item, todas as pocições estão preenchidas");
 	}
 	
 	//FUNÇÃO DE ENZO
