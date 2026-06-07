@@ -1,10 +1,104 @@
 package lpa;
+import java.util.Scanner;
 
 public class Projeto {
 
 	public static void main(String[] args) {
-		System.out.println("oiii");
-
+		
+		inicio();
 	}
 
+	//função principal para iniciar o sistema ->CLARA<-
+	public static void inicio() {
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Informe a quantidade de posições do array:");
+		int tamanho = teclado.nextInt();
+		teclado.nextLine();
+		
+		//criei o array
+		String palavras [] = new String[tamanho];
+		
+		//variavel da opcao escolhida
+		int opcao;
+		
+		//esse é o do para puxar a função menu
+		do {
+			menu();
+			opcao = teclado.nextInt();
+			teclado.nextLine();
+			
+			switch (opcao) {
+			
+			//funçao de nico
+			case 1:
+				adicionarPalavra(palavras);
+				break;
+				
+			//enzo	
+			case 2:	
+				alterarPalavra(palavras);
+				break;
+				
+			//thauan	
+			case 3:	
+				excluirPalavra(palavras);
+				break;
+			 
+			//manu
+			case 4:
+				listarPalavra(palavras);
+				
+			//funçao para encerrar o sistema	
+			case 5:	
+				System.out.println("");
+				System.out.println("Sistema encerrado");
+				break;
+			
+			//essa bosta aq é para caso escolham um número que não puxe nenhuma função	
+			default:
+				System.out.println("");
+				System.out.println("Opção inválida");
+		
+			}
+		} while (opcao != 5); 
+		
+	}
+	
+	//função para mostrar o menu
+	public static void menu() {
+		
+		System.out.println("");
+		System.out.println("    MENU    ");
+		System.out.println("1 - Adicionar palavra");
+		System.out.println("2 - Alterar palavra");
+		System.out.println("3 - Excluir palavra");
+		System.out.println("4 - Listar palavras");
+		System.out.println("5 - Sair");
+		System.out.println("Escolha uma opção");
+		System.out.println("");
+		
+	}
+	
+	//INICIO DO CODIGO DAS FUNÇÕES (OBS: cada um pfvr edite apenas dentro da sua função)
+	//FUNÇÃO DE NICO
+	public static void adicionarPalavra(String[] palavras) {
+		
+	}
+	
+	//FUNÇÃO DE ENZO
+    public static void alterarPalavra(String[] palavras) {
+		
+	}
+    
+    //FUNÇÃO DE THAUAN
+    public static void excluirPalavra(String[] palavras) {
+		
+   	}
+    
+    //FUNÇÃO DE MANU
+    public static void listarPalavra(String[] palavras) {
+		
+   	}
 }
+
