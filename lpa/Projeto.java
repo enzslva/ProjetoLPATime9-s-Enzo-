@@ -115,12 +115,12 @@ public class Projeto {
 		// abertura da entrada de dados e declarando variavel
 		Scanner scan = new Scanner(System.in);
 
+		String palavraNova = null;
 		String palavraAntiga = null;
 		boolean palavraEncontrada = false;
-		boolean palavraExiste = false;
+		boolean palavraExiste = true;
 
 		// pedindo a palavra antiga
-
 		// while para continuar pedindo a palavra antiga se ela não for encontrada
 		while (palavraEncontrada == false) {
 			System.out.println("Qual a palavra você deseja alterar: ");
@@ -128,7 +128,7 @@ public class Projeto {
 
 			// verificando se a palavra antiga existe
 			for (int p = 0; p < palavras.length; p++) {
-				if (palavras[p] != null && palavras[p].equals(palavraAntiga)) {
+				if (palavras[p] != null && palavras[p].equalsIgnoreCase(palavraAntiga)) {
 
 					palavraEncontrada = true;
 					break;
@@ -142,25 +142,29 @@ public class Projeto {
 		}
 
 		// pedindo a palavra nova
-		System.out.println("Qual a palavra que você deseja colocar");
-		String palavraNova = scan.nextLine();
+		while (palavraExiste) {
+			
+			palavraExiste = false;
+			
+			System.out.println("Qual a palavra que você deseja colocar");
+			palavraNova = scan.nextLine();
 
-		// se a palavra nova já existir
-		for (int p = 0; p < palavras.length; p++) {
-			if (palavras[p] != null && palavras[p].equals(palavraNova)) {
-				palavraExiste = true;
-				break;
+			// se a palavra nova já existir
+			for (int p = 0; p < palavras.length; p++) {
+				if (palavras[p] != null && palavras[p].equalsIgnoreCase(palavraNova)) {
+					palavraExiste = true;
+					break;
+				}
 			}
-		}
 
-		if (palavraExiste == true) {
-			System.out.println("Essa palavra já existe");
-			return;
+			if (palavraExiste == true) {
+				System.out.println("Essa palavra já existe");
+			}
 		}
 
 		// Se a palavra antiga existe e a palavra nova não existe, fazer a alteração
 		for (int p = 0; p < palavras.length; p++) {
-			if (palavras[p] != null && palavras[p].equals(palavraAntiga)) {
+			if (palavras[p] != null && palavras[p].equalsIgnoreCase(palavraAntiga)) {
 				palavras[p] = palavraNova;
 
 				palavraEncontrada = true;
